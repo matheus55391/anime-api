@@ -1,10 +1,15 @@
 using Microsoft.OpenApi.Models;
 using AnimeAPI.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using AnimeAPI.Infrastructure.Repositories;
+using AnimeAPI.Domain.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddScoped<IAnimeRepository, AnimeRepository>();
+
 builder.Services.AddDbContext<AnimeDbContext>(options =>
     options.UseSqlServer(connectionString));
 
@@ -81,10 +86,9 @@ app.UseCors("AllowAll");
 
 app.UseSwagger();
 app.UseSwaggerUI();
-
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
+
 app.Run();
