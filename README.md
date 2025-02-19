@@ -46,12 +46,22 @@ Os endpoints seguem o padrão REST e são versionados:
 
 ### Rodando a Aplicação
 
-1. Clone o repositório:
+1. Rodando com docker:
 
-   ```bash
-   git clone https://github.com/matheus55391/anime-api.git
-   ```
+```bash
+git clone https://github.com/matheus55391/anime-api.git
+```
 
-   ```bash
-    cd anime-api
-   ```
+```bash
+ cd anime-api
+```
+
+```bash
+docker-compose up -d
+```
+
+1. Rodando via terminal:
+
+```bash
+dotnet watch --project AnimeAPI.API
+```
