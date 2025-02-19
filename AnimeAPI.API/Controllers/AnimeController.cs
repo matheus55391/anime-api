@@ -22,9 +22,9 @@ namespace AnimeAPI.API.Controllers
         [AllowAnonymous]
         [ProducesResponseType(typeof(IEnumerable<Anime>), 200)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<IEnumerable<Anime>>> GetAll()
+        public async Task<ActionResult<IEnumerable<Anime>>> GetAll([FromQuery] GetAllAnimesByFiltersDto filters)
         {
-            var animes = await _animeService.GetAllAsync();
+            var animes = await _animeService.GetAllAsync(filters);
             return Ok(animes);
         }
 

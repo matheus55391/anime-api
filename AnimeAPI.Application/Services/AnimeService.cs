@@ -13,9 +13,9 @@ namespace AnimeAPI.Application.Services
             _animeRepository = animeRepository;
         }
 
-        public async Task<IEnumerable<Anime>> GetAllAsync()
+        public async Task<IEnumerable<Anime>> GetAllAsync(GetAllAnimesByFiltersDto filters)
         {
-            return await _animeRepository.GetAllAsync();
+            return await _animeRepository.GetAllAsync(filters.Id, filters.Name, filters.Director);
         }
 
         public async Task<Anime> CreateAsync(CreateAnimeRequestDto anime)
@@ -46,7 +46,7 @@ namespace AnimeAPI.Application.Services
 
             if (anime == null)
             {
-                throw new KeyNotFoundException("Anime n o encontrado");
+                throw new KeyNotFoundException("Anime not found.");
             }
 
             await _animeRepository.DeleteAsync(id);
