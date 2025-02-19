@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using AnimeAPI.Application.Services;
 using AnimeAPI.Domain.Entities;
+using AnimeAPI.Application.DTOs;
+using System.Threading.Tasks;
 
 namespace AnimeAPI.API.Controllers
 {
@@ -32,15 +34,15 @@ namespace AnimeAPI.API.Controllers
         }
 
         [HttpPost]
-        [Authorize]
-        public IActionResult Create([FromBody] AnimeDto anime)
+        public async Task<IActionResult> Create([FromBody] CreateAnimeRequestDto data)
         {
-            return StatusCode(501, "Not implemented.");
+            var anime = await _animeService.CadastrarAnimeAsync(data);
+            return StatusCode(201, anime);
         }
 
         [HttpPut("{id}")]
         [Authorize]
-        public IActionResult Update(int id, [FromBody] AnimeDto anime)
+        public IActionResult Update(int id, [FromBody] CreateAnimeRequestDto anime)
         {
             return StatusCode(501, "Not implemented.");
         }
@@ -53,12 +55,5 @@ namespace AnimeAPI.API.Controllers
         }
     }
 
-    public class AnimeDto
-    {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Diretor { get; set; }
-        public string Resumo { get; set; }
-    }
 }
 
