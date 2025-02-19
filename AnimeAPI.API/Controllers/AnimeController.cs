@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using AnimeAPI.Application.Services;
+using AnimeAPI.Domain.Entities;
 
 namespace AnimeAPI.API.Controllers
 {
@@ -7,10 +9,20 @@ namespace AnimeAPI.API.Controllers
     [Route("api/v1/animes")]
     public class AnimeController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAll()
+        private readonly AnimeService _animeService;
+
+        public AnimeController(AnimeService animeService)
         {
-            return StatusCode(501, "Not implemented.");
+            _animeService = animeService;
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<Anime>), 200)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<IEnumerable<Anime>>> GetAll()
+        {
+            var animes = await _animeService.GetAllAsync();
+            return Ok(animes);
         }
 
         [HttpGet("{id}")]

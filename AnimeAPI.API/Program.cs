@@ -3,21 +3,22 @@ using AnimeAPI.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using AnimeAPI.Infrastructure.Repositories;
 using AnimeAPI.Domain.Interfaces;
+using AnimeAPI.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+builder.Services.AddScoped<AnimeService>();
 builder.Services.AddScoped<IAnimeRepository, AnimeRepository>();
 
 builder.Services.AddDbContext<AnimeDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString + ";TrustServerCertificate=True"));
 
-// Add services to the container.
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// Configuração do Swagger com suporte a JWT
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -37,20 +38,8 @@ builder.Services.AddSwaggerGen(c =>
         BearerFormat = "JWT"
     });
 
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            new string[] {}
-        }
-    });
+    c.EnableAnnotations();
+    // c.OperationFilter<AuthorizeCheckOperationFilter>();
 });
 
 // Configuração de autenticação e autorização com JWT
