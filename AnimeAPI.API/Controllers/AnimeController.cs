@@ -19,6 +19,7 @@ namespace AnimeAPI.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(IEnumerable<Anime>), 200)]
         [ProducesResponseType(500)]
         public async Task<ActionResult<IEnumerable<Anime>>> GetAll()
@@ -28,30 +29,39 @@ namespace AnimeAPI.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public IActionResult GetById(int id)
         {
             return StatusCode(501, "Not implemented.");
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(Anime), 200)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> Create([FromBody] CreateAnimeRequestDto data)
         {
-            var anime = await _animeService.CadastrarAnimeAsync(data);
+            var anime = await _animeService.CreateAsync(data);
             return StatusCode(201, anime);
         }
 
-        [HttpPut("{id}")]
-        [Authorize]
-        public IActionResult Update(int id, [FromBody] CreateAnimeRequestDto anime)
+        [HttpPut]
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(Anime), 200)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> Update([FromBody] UpdateAnimeRequestDto anime)
         {
-            return StatusCode(501, "Not implemented.");
+            var updatedAnime = await _animeService.UpdateAsync(anime);
+            return StatusCode(201, updatedAnime);
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
-        public IActionResult Delete(int id)
+        [AllowAnonymous]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+        public async Task Delete([FromRoute] Guid id)
         {
-            return StatusCode(501, "Not implemented.");
+            await _animeService.DeleteAsync(id);
         }
     }
 

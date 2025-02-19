@@ -18,6 +18,14 @@ public class Anime
         Summary = summary;
     }
 
+    public Anime(Guid id, string name, string director, string summary) : this(name, director, summary)
+    {
+        Id = id;
+        Name = name;
+        Director = director;
+        Summary = summary;
+    }
+
     public void Update(string name, string director, string summary)
     {
         Name = name;
