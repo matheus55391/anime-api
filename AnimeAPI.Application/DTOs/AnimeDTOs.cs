@@ -30,5 +30,13 @@ namespace AnimeAPI.Application.DTOs
         public string Director { get; set; }
     }
 
+    public class GetAllAnimesByFiltersDto
+    {
+        public Guid? Id { get; set; }
+        public string? Name { get; set; }
+        public string? Director { get; set; }
+    }
+
+
 }
 
