@@ -107,10 +107,8 @@ A aplicação foi desenvolvida com as seguintes tecnologias:
 Os endpoints seguem o padrão REST e são versionados:
 
 - `GET /api/v1/animes` - Retorna todos os animes.
-- `GET /api/v1/animes/{id}` - Retorna o anime pelo ID.
-- `GET /api/v1/animes/search` - Retorna animes filtrados por nome ou diretor.
 - `POST /api/v1/animes` - Cadastra um novo anime.
-- `PUT /api/v1/animes/{id}` - Atualiza um anime existente.
+- `PUT /api/v1/animes` - Atualiza um anime existente.
 - `DELETE /api/v1/animes/{id}` - Exclui um anime.
 
 ### Pré-requisitos
