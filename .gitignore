@@ -365,5 +365,6 @@ FodyWeavers.xsd
 firebase-service-account.json
 
 # Ignorar o arquivo de configuração real
-appsettings.json
-appsettings.Development.json
+# Como é um projeto de teste vou commitar as envs para facilitar a execução do projeto
+# appsettings.json
+# appsettings.Development.json

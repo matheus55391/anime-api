@@ -14,30 +14,12 @@ namespace AnimeAPI.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Anime>> GetAllAsync(Guid? id = null, string? name = null, string? director = null)
+        public async Task<IEnumerable<Anime>> GetAllAsync(Guid? id, string? name, string? director)
         {
             var query = _context.Animes.AsQueryable();
 
             if (id.HasValue)
                 query = query.Where(a => a.Id == id);
-
-            if (!string.IsNullOrEmpty(name))
-                query = query.Where(a => a.Name.Contains(name));
-
-            if (!string.IsNullOrEmpty(director))
-                query = query.Where(a => a.Director.Contains(director));
-
-            return await query.ToListAsync();
-        }
-
-        public async Task<Anime?> GetByIdAsync(Guid id)
-        {
-            return await _context.Animes.FindAsync(id);
-        }
-
-        public async Task<IEnumerable<Anime>> GetByFiltersAsync(string? name, string? director)
-        {
-            var query = _context.Animes.AsQueryable();
 
             if (!string.IsNullOrEmpty(name))
                 query = query.Where(a => a.Name.Contains(name));

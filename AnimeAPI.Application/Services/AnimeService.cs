@@ -42,13 +42,6 @@ namespace AnimeAPI.Application.Services
 
         public async Task DeleteAsync(Guid id)
         {
-            var anime = await _animeRepository.GetByIdAsync(id);
-
-            if (anime == null)
-            {
-                throw new KeyNotFoundException("Anime not found.");
-            }
-
             await _animeRepository.DeleteAsync(id);
         }
     }
