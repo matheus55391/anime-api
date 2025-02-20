@@ -1,16 +1,34 @@
 services:
+  animeapi.api:
+    image: ${DOCKER_REGISTRY-}animeapiapi
+    build:
+      context: .
+      dockerfile: AnimeAPI.API/Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8080"
+    depends_on:
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - animeapinetwork
+    restart: on-failure
+
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: anime-api-db
-    restart: always
     environment:
-      SA_PASSWORD: "YourStrong!Passw0rd"
+      SA_PASSWORD: "Password12345!"
       ACCEPT_EULA: "Y"
     ports:
       - "1433:1433"
     volumes:
-      - sqlserver_data:/var/opt/mssql
+      - sqlvolume:/var/opt/mssql
+    networks:
+      - animeapinetwork
 
 volumes:
-  sqlserver_data:
-    driver: local
+  sqlvolume:
+
+networks:
+  animeapinetwork:
