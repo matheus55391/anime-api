@@ -28,13 +28,6 @@ namespace AnimeAPI.API.Controllers
             return Ok(animes);
         }
 
-        [HttpGet("{id}")]
-        [AllowAnonymous]
-        public IActionResult GetById(int id)
-        {
-            return StatusCode(501, "Not implemented.");
-        }
-
         [HttpPost]
         [AllowAnonymous]
         [ProducesResponseType(typeof(Anime), 200)]
