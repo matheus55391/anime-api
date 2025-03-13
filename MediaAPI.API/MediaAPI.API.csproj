@@ -16,7 +16,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="7.2.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AnimeAPI.Application\AnimeAPI.Application.csproj" />
-    <ProjectReference Include="..\AnimeAPI.Infrastructure\AnimeAPI.Infrastructure.csproj" />
+    <ProjectReference Include="..\MediaAPI.Application\MediaAPI.Application.csproj" />
+    <ProjectReference Include="..\MediaAPI.Infrastructure\MediaAPI.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

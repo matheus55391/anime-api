@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AnimeAPI.Application.DTOs
+namespace MediaAPI.Application.DTOs
 {
-    public class CreateAnimeRequestDto
+    public class CreateMediaRequestDto
     {
         [Required(ErrorMessage = "The Name field is required.")]
         public string Name { get; set; }
@@ -15,7 +15,7 @@ namespace AnimeAPI.Application.DTOs
 
     }
 
-    public class UpdateAnimeRequestDto
+    public class UpdateMediaRequestDto
     {
         [Required]
         public Guid Id { get; set; }
@@ -30,7 +30,7 @@ namespace AnimeAPI.Application.DTOs
         public string Director { get; set; }
     }
 
-    public class GetAllAnimesByFiltersDto
+    public class GetAllMediasByFiltersDto
     {
         public Guid? Id { get; set; }
         public string? Name { get; set; }

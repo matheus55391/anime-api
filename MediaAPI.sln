@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimeAPI.API", "AnimeAPI.API\AnimeAPI.API.csproj", "{8596E9AC-A55F-46A4-833A-0281B91CFCBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaAPI.API", "MediaAPI.API\MediaAPI.API.csproj", "{8596E9AC-A55F-46A4-833A-0281B91CFCBD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimeAPI.Application", "AnimeAPI.Application\AnimeAPI.Application.csproj", "{CE5308F5-5F51-4FF1-B399-A2E979BD961A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaAPI.Application", "MediaAPI.Application\MediaAPI.Application.csproj", "{CE5308F5-5F51-4FF1-B399-A2E979BD961A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimeAPI.Domain", "AnimeAPI.Domain\AnimeAPI.Domain.csproj", "{E4D03428-7079-4B6F-81DD-721A492FD75A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaAPI.Domain", "MediaAPI.Domain\MediaAPI.Domain.csproj", "{E4D03428-7079-4B6F-81DD-721A492FD75A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimeAPI.Infrastructure", "AnimeAPI.Infrastructure\AnimeAPI.Infrastructure.csproj", "{E00A8790-B1BD-4200-BC5C-9D50FF2CF496}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaAPI.Infrastructure", "MediaAPI.Infrastructure\MediaAPI.Infrastructure.csproj", "{E00A8790-B1BD-4200-BC5C-9D50FF2CF496}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F82AD2FF-1833-482B-96AD-368F5CFD17DB}"
 EndProject

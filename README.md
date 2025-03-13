@@ -1,6 +1,6 @@
-# Anime API
+# Media API
 
-Este repositório contém uma aplicação de API web que gerencia animes, desenvolvida como parte de um desafio técnico. A aplicação segue os requisitos e boas práticas de desenvolvimento para demonstrar conhecimentos em .NET, Clean Architecture, Entity Framework, MediatR, testes unitários, entre outros.
+Este repositório contém uma aplicação de API web que gerencia medias, desenvolvida como parte de um desafio técnico. A aplicação segue os requisitos e boas práticas de desenvolvimento para demonstrar conhecimentos em .NET, Clean Architecture, Entity Framework, MediatR, testes unitários, entre outros.
 
 ## 🚀 Rodando a Aplicação
 
@@ -9,19 +9,19 @@ Este repositório contém uma aplicação de API web que gerencia animes, desenv
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/matheus55391/anime-api.git
+   git clone https://github.com/matheus55391/media-api.git
    ```
 
 2. Acesse a pasta do projeto:
 
    ```bash
-   cd anime-api
+   cd media-api
    ```
 
 3. Configure a conexão com o banco de dados:
 
    - O banco de dados SQL Server será iniciado automaticamente pelo Docker.
-   - Edite os arquivos `AnimeAPI/appsettings.json` e `AnimeAPI/appsettings.Development.json` para garantir que a string de conexão esteja correta.
+   - Edite os arquivos `MediaAPI/appsettings.json` e `MediaAPI/appsettings.Development.json` para garantir que a string de conexão esteja correta.
    - Se estiver usando um banco externo, comente a seção referente ao `sqlserver` no `docker-compose.yml` e ajuste a string de conexão para apontar ao banco externo.
 
 4. Construa e inicie os containers em segundo plano:
@@ -37,19 +37,19 @@ Este repositório contém uma aplicação de API web que gerencia animes, desenv
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/matheus55391/anime-api.git
+   git clone https://github.com/matheus55391/media-api.git
    ```
 
 2. Acesse a pasta do projeto:
 
    ```bash
-   cd anime-api
+   cd media-api
    ```
 
 3. Inicie a API com recarregamento automático:
 
    ```bash
-   dotnet watch --project AnimeAPI.API
+   dotnet watch --project MediaAPI.API
    ```
 
 4. A API estará disponível em `http://localhost:8080`.
@@ -59,7 +59,7 @@ Este repositório contém uma aplicação de API web que gerencia animes, desenv
 Se for necessário atualizar o banco de dados com as migrations, execute:
 
 ```bash
-dotnet ef database update --project AnimeAPI.Infrastructure --startup-project AnimeAPI.API
+dotnet ef database update --project MediaAPI.Infrastructure --startup-project MediaAPI.API
 ```
 
 Isso aplicará as migrations ao banco configurado.
@@ -81,13 +81,13 @@ Se preferir, o **Visual Studio Code** também pode ser utilizado com a extensão
 
 ## Funcionalidades
 
-A API oferece as seguintes funcionalidades para manipulação de animes:
+A API oferece as seguintes funcionalidades para manipulação de medias:
 
-- **Obter todos os animes**: Retorna todos os animes cadastrados.
-- **Obter anime por ID, diretor ou nome**: Permite buscar animes com base em qualquer combinação desses campos.
-- **Cadastrar anime**: Cria um novo anime com nome, diretor e resumo.
-- **Alterar anime**: Atualiza os detalhes de um anime existente.
-- **Excluir anime**: Remove um anime do banco de dados.
+- **Obter todos os medias**: Retorna todos os medias cadastrados.
+- **Obter media por ID, diretor ou nome**: Permite buscar medias com base em qualquer combinação desses campos.
+- **Cadastrar media**: Cria um novo media com nome, diretor e resumo.
+- **Alterar media**: Atualiza os detalhes de um media existente.
+- **Excluir media**: Remove um media do banco de dados.
 
 ## Requisitos Técnicos
 
@@ -106,10 +106,10 @@ A aplicação foi desenvolvida com as seguintes tecnologias:
 
 Os endpoints seguem o padrão REST e são versionados:
 
-- `GET /api/v1/animes` - Retorna todos os animes.
-- `POST /api/v1/animes` - Cadastra um novo anime.
-- `PUT /api/v1/animes` - Atualiza um anime existente.
-- `DELETE /api/v1/animes/{id}` - Exclui um anime.
+- `GET /api/v1/medias` - Retorna todos os medias.
+- `POST /api/v1/medias` - Cadastra um novo media.
+- `PUT /api/v1/medias` - Atualiza um media existente.
+- `DELETE /api/v1/medias/{id}` - Exclui um media.
 
 ### Pré-requisitos
 

@@ -1,0 +1,6 @@
+@MediaAPI.API_HostAddress = http://localhost:5166
+
+GET {{MediaAPI.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

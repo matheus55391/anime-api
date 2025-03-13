@@ -12,22 +12,22 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["AnimeAPI.API/AnimeAPI.API.csproj", "AnimeAPI.API/"]
-COPY ["AnimeAPI.Application/AnimeAPI.Application.csproj", "AnimeAPI.Application/"]
-COPY ["AnimeAPI.Domain/AnimeAPI.Domain.csproj", "AnimeAPI.Domain/"]
-COPY ["AnimeAPI.Infrastructure/AnimeAPI.Infrastructure.csproj", "AnimeAPI.Infrastructure/"]
-RUN dotnet restore "./AnimeAPI.API/AnimeAPI.API.csproj"
+COPY ["MediaAPI.API/MediaAPI.API.csproj", "MediaAPI.API/"]
+COPY ["MediaAPI.Application/MediaAPI.Application.csproj", "MediaAPI.Application/"]
+COPY ["MediaAPI.Domain/MediaAPI.Domain.csproj", "MediaAPI.Domain/"]
+COPY ["MediaAPI.Infrastructure/MediaAPI.Infrastructure.csproj", "MediaAPI.Infrastructure/"]
+RUN dotnet restore "./MediaAPI.API/MediaAPI.API.csproj"
 COPY . .
-WORKDIR "/src/AnimeAPI.API"
-RUN dotnet build "./AnimeAPI.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/MediaAPI.API"
+RUN dotnet build "./MediaAPI.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./AnimeAPI.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./MediaAPI.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "AnimeAPI.API.dll"]
+ENTRYPOINT ["dotnet", "MediaAPI.API.dll"]

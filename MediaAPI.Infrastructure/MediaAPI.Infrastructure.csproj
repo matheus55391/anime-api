@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\AnimeAPI.Application\AnimeAPI.Application.csproj" />
-    <ProjectReference Include="..\AnimeAPI.Domain\AnimeAPI.Domain.csproj" />
+    <ProjectReference Include="..\MediaAPI.Application\MediaAPI.Application.csproj" />
+    <ProjectReference Include="..\MediaAPI.Domain\MediaAPI.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />

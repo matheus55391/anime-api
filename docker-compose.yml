@@ -1,9 +1,9 @@
 services:
-  animeapi.api:
-    image: ${DOCKER_REGISTRY-}animeapiapi
+  mediaapi.api:
+    image: ${DOCKER_REGISTRY-}mediaapiapi
     build:
       context: .
-      dockerfile: AnimeAPI.API/Dockerfile
+      dockerfile: MediaAPI.API/Dockerfile
     ports:
       - "8080:8080"
       - "8081:8080"
@@ -12,7 +12,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
-      - animeapinetwork
+      - mediaapinetwork
     restart: on-failure
 
   sqlserver:
@@ -25,10 +25,10 @@ services:
     volumes:
       - sqlvolume:/var/opt/mssql
     networks:
-      - animeapinetwork
+      - mediaapinetwork
 
 volumes:
   sqlvolume:
 
 networks:
-  animeapinetwork:
+  mediaapinetwork:

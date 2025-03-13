@@ -1,6 +1,6 @@
-﻿namespace AnimeAPI.Domain.Entities;
+﻿namespace MediaAPI.Domain.Entities;
 
-public class Anime
+public class Media
 {
     public Guid Id { get; private set; }
     public string Name { get; private set; }
@@ -8,9 +8,9 @@ public class Anime
     public string Summary { get; private set; }
 
     // Construtor protegido para o EF Core
-    protected Anime() { }
+    protected Media() { }
 
-    public Anime(string name, string director, string summary)
+    public Media(string name, string director, string summary)
     {
         Id = Guid.NewGuid();
         Name = name;
@@ -18,7 +18,7 @@ public class Anime
         Summary = summary;
     }
 
-    public Anime(Guid id, string name, string director, string summary) : this(name, director, summary)
+    public Media(Guid id, string name, string director, string summary) : this(name, director, summary)
     {
         Id = id;
         Name = name;

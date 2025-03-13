@@ -7,7 +7,7 @@
     <ProjectGuid>f82ad2ff-1833-482b-96ad-368f5cfd17db</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
-    <DockerServiceName>animeapi.api</DockerServiceName>
+    <DockerServiceName>mediaapi.api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

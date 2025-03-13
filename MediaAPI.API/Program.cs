@@ -1,19 +1,19 @@
 using Microsoft.OpenApi.Models;
-using AnimeAPI.Infrastructure.Data;
+using MediaAPI.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using AnimeAPI.Infrastructure.Repositories;
-using AnimeAPI.Domain.Interfaces;
-using AnimeAPI.Application.Services;
-using AnimeAPI.Domain.Entities;
+using MediaAPI.Infrastructure.Repositories;
+using MediaAPI.Domain.Interfaces;
+using MediaAPI.Application.Services;
+using MediaAPI.Domain.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddScoped<AnimeService>();
-builder.Services.AddScoped<IAnimeRepository, AnimeRepository>();
+builder.Services.AddScoped<MediaService>();
+builder.Services.AddScoped<IMediaRepository, MediaRepository>();
 
-builder.Services.AddDbContext<AnimeDbContext>(options =>
+builder.Services.AddDbContext<MediaDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 
@@ -24,7 +24,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Anime API",
+        Title = "Media API",
         Version = "v1"
     });
 
@@ -81,17 +81,17 @@ app.UseAuthorization();
 
 using (var scope = app.Services.CreateScope())
 {
-    var context = scope.ServiceProvider.GetRequiredService<AnimeDbContext>();
+    var context = scope.ServiceProvider.GetRequiredService<MediaDbContext>();
     context.Database.Migrate();
 
-    if (!context.Animes.Any())
+    if (!context.Medias.Any())
     {
-        context.Animes.AddRange(
-            new Anime("Naruto", "Masashi Kishimoto", "Naruto Uzumaki, um jovem ninja, busca reconhecimento e sonha em se tornar Hokage."),
-            new Anime("Dragon Ball Z", "Akira Toriyama", "Goku e seus amigos protegem a Terra contra poderosos inimigos, incluindo alienígenas e deuses."),
-            new Anime("One Piece", "Eiichiro Oda", "Monkey D. Luffy e sua tripulação navegam pelos mares em busca do lendário tesouro One Piece."),
-            new Anime("Bleach", "Tite Kubo", "Ichigo Kurosaki, um adolescente com poderes espirituais, luta contra espíritos malignos chamados Hollows."),
-            new Anime("Fullmetal Alchemist", "Hiromu Arakawa", "Os irmãos Elric usam alquimia para recuperar seus corpos após um experimento fracassado.")
+        context.Medias.AddRange(
+            new Media("Naruto", "Masashi Kishimoto", "Naruto Uzumaki, um jovem ninja, busca reconhecimento e sonha em se tornar Hokage."),
+            new Media("Dragon Ball Z", "Akira Toriyama", "Goku e seus amigos protegem a Terra contra poderosos inimigos, incluindo alienígenas e deuses."),
+            new Media("One Piece", "Eiichiro Oda", "Monkey D. Luffy e sua tripulação navegam pelos mares em busca do lendário tesouro One Piece."),
+            new Media("Bleach", "Tite Kubo", "Ichigo Kurosaki, um adolescente com poderes espirituais, luta contra espíritos malignos chamados Hollows."),
+            new Media("Fullmetal Alchemist", "Hiromu Arakawa", "Os irmãos Elric usam alquimia para recuperar seus corpos após um experimento fracassado.")
         );
 
         context.SaveChanges();

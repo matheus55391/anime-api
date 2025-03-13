@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\AnimeAPI.Domain\AnimeAPI.Domain.csproj" />
+    <ProjectReference Include="..\MediaAPI.Domain\MediaAPI.Domain.csproj" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>

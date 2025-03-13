@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace AnimeAPI.Infrastructure.Migrations
+namespace MediaAPI.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -12,7 +12,7 @@ namespace AnimeAPI.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Animes",
+                name: "Medias",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -22,7 +22,7 @@ namespace AnimeAPI.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Animes", x => x.Id);
+                    table.PrimaryKey("PK_Medias", x => x.Id);
                 });
         }
 
@@ -30,7 +30,7 @@ namespace AnimeAPI.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Animes");
+                name: "Medias");
         }
     }
 }
