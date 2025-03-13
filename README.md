@@ -9,13 +9,13 @@ Este repositório contém uma aplicação de API web que gerencia medias, desenv
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/matheus55391/media-api.git
+   git clone https://github.com/matheus55391/media-api-desafio.git
    ```
 
 2. Acesse a pasta do projeto:
 
    ```bash
-   cd media-api
+   cd media-api-desafio
    ```
 
 3. Configure a conexão com o banco de dados:
@@ -37,13 +37,13 @@ Este repositório contém uma aplicação de API web que gerencia medias, desenv
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/matheus55391/media-api.git
+   git clone https://github.com/matheus55391/media-api-desafio.git
    ```
 
 2. Acesse a pasta do projeto:
 
    ```bash
-   cd media-api
+   cd media-api-desafio
    ```
 
 3. Inicie a API com recarregamento automático:
